@@ -24,9 +24,37 @@ function submitForm() {
   let bookAuthor = document.getElementById("book-author").value;
   let bookPages = document.getElementById("book-pages").value;
   const book1 = new Book(bookTitle, bookAuthor, bookPages);
-  // console.log(exp1.title,exp1.author,exp1.pages);
   myLibrary.push(book1);
-  // console.log(myLibrary[1]);
+  // console.log(myLibrary);
   modal.style.display = "none";
   bookForm.reset();
+
+  for(i=0;i<=myLibrary.length;i++)
+  {
+    console.log(myLibrary[i]);
+
+
+  }
+    // const container=document.createElement("div");
+    // const box=document.createElement("div");
+    // const titleOfBook=document.createElement("h3");
+    // const authorOfBook=document.createElement("p");
+    // const pagesOfBook=document.createElement("p");
+    // const readBook=document.createElement("p");
+    // const deleteIcon=document.createElement("div");
+    
+    // container.classList.add='book-templates';
+    // box.classList.add='template-1';
+    // titleOfBook.classList.add='template-heading';
+    // authorOfBook.classList.add='template-optns';
+    // pagesOfBook.classList.add='template-optns';
+    // readBook.classList.add='template-optns';
+
+    // titleOfBook.textContent=book1.title;
+    // authorOfBook.textContent=book1.author;
+    // pagesOfBook.textContent=book1.pages;
 }
+
+
+
+
