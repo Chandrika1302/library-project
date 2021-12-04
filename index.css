@@ -1,0 +1,67 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-size: 25px;
+}
+label{
+  padding-bottom: 5px;
+}
+input{
+  margin-bottom: 15px;
+  padding: 5px 0;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 20%;
+}
+.heading{
+  text-align: center;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20%;
+}
+.exp{
+  display: flex;
+  flex-direction: column;
+}
+.read-que{
+  margin-bottom: 5px;
+}
+.submit-opt,.cancel-opt{
+  padding: 12px 25px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.submit-opt{
+  background-color: #4E9F3D;
+}
+.submit-opt:hover{
+  background-color: green;
+}
+.cancel-opt:hover{
+  background-color: rgb(207, 24, 24);
+}
+.cancel-opt{
+  background-color: #FF2626;
+}
