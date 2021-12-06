@@ -11,26 +11,41 @@
                 <div class="welcomeBack-form">
                     <form class="form" id="form">
                         <h2 class="heading">Add New Book</h2>
-                        <label class="title"  ">Title</label>
+                        <label class="title">Title</label>
                         <input type="text" placeholder="Enter the title" id="book-title" required>
-                        <label" class="author">Author</label>
-                        <input type="text" placeholder="Enter the name of the author" id="book-author" required>
+                        <label class="author">Author</label>
+                        <input type="text" placeholder="Enter the name of the author" 
+                        id="book-author" required >
                         <label class="pages" >Pages</label>
-                        <input type="number" placeholder="Enter the number of pages" id="book-pages" required>
+                        <input type="number" placeholder="Enter the number of pages" id="book-pages" required >
+                        
                         <p class="read-que">Have you read the book?</p>
                         <div class="exp"> 
                             <div><input type="radio" id="yes-btn" class="choose-optn" value="Yes" name="option">
-                                <label>Yes</label></div>
+                            <label>Yes</label></div>
                             <div> <input type="radio" id="no-btn" class="choose-optn" value="No" name="option">
                             <label>No</label></div></div>
                         <div class="options">
-                            <button type="button" class="submit-opt" id="create-book">Submit</button>
+                            <button type="submit" class="submit-opt" id="create-book">Submit</button>
                             <button type="button" class="cancel-opt" id="cancel-create-book">Cancel</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+
+        <div id="book-templates"></div>
+
+        <!-- <div class="book-templates">
+            <div class="template-1">            
+                <h3 class="template-heading">Title</h3>
+                <p class="template-optns">Author</p>
+                <p class="template-optns">Pages</p>
+                <p class="template-optns">Read</p>
+                <p class="template-optns">Not Read</p>
+            </div>
+        </div> -->
         <script src="./script.js"></script>
     </body>
    
