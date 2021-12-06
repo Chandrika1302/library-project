@@ -65,3 +65,22 @@ input{
 .cancel-opt{
   background-color: #FF2626;
 }
+
+
+
+#book-templates{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 20px;
+  text-align: center;
+}
+.template-1{
+  background-color: rgb(212, 65, 65);
+}
+.template-heading{
+  background-color: antiquewhite;
+}
+.template-optns{
+  background-color: #888;
+}
