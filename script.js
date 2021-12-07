@@ -11,7 +11,6 @@ const myLibrary = [];
 
 function toggleBookModal() {
   const Bookmodal = document.getElementById("myModal");
-  console.log(Bookmodal);
   Bookmodal.classList.toggle("hide");
 }
 
@@ -24,13 +23,13 @@ function submitForm(e) {
   myLibrary.push(book);
 
   const bookDiv = createBookDiv(book);
-  display(myLibrary,bookContainer);
+  display(myLibrary, bookContainer);
 
   toggleBookModal();
   form.reset();
 }
 
-function createBookDiv(book) {
+function createBookDiv(book, index) {
   const bookDiv = document.createElement("div");
   const titleOfBook = document.createElement("h3");
   const authorOfBook = document.createElement("p");
@@ -44,8 +43,9 @@ function createBookDiv(book) {
   authorOfBook.classList.add("template-optns");
   pagesOfBook.classList.add("template-optns");
   readBook.classList.add("read-div");
-  deleteDiv.classList.add("delete-icon");
+  deleteDiv.classList.add("delete-container");
   deleteIcon.className = "fas fa-trash-alt";
+  bookDiv.setAttribute("data-chandrika", index);
 
   titleOfBook.textContent = book.title;
   authorOfBook.textContent = book.author;
@@ -57,7 +57,10 @@ function createBookDiv(book) {
     readBook.classList.add("unread-book");
   }
 
-  bookDiv.appendChild(deleteIcon);
+  deleteDiv.addEventListener("click", deleteBook);
+
+  deleteDiv.appendChild(deleteIcon);
+  bookDiv.appendChild(deleteDiv);
   bookDiv.appendChild(titleOfBook);
   bookDiv.appendChild(authorOfBook);
   bookDiv.appendChild(pagesOfBook);
@@ -82,10 +85,19 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function display(library,container) {
-  container.innerHTML='';
-  for(const book of library){
-    const bookDiv=createBookDiv(book);
+function display(library, container) {
+  container.innerHTML = "";
+  for (let i = 0; i < library.length; i++) {
+    const book = library[i];
+    const bookDiv = createBookDiv(book, i);
     container.appendChild(bookDiv);
   }
+}
+
+function deleteBook(e) {
+  const deleteDiv = e.target;
+  const bookDiv = deleteDiv.parentElement.parentElement;
+  const targetIndex = bookDiv.getAttribute("data-chandrika");
+  myLibrary.splice(targetIndex, 1);
+  display(myLibrary, bookContainer);
 }

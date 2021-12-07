@@ -157,7 +157,7 @@ input{
   transform: scale(0.95);
  }
  
- .delete-icon{
+ .delete-container{
    display: flex;
    flex-direction: row-reverse;
    cursor: pointer;
