@@ -50,7 +50,7 @@ function createBookDiv(book, index) {
   titleOfBook.textContent = book.title;
   authorOfBook.textContent = book.author;
   pagesOfBook.textContent = book.pages;
-  if (book.read === "yes") {
+  if (book.read) {
     readBook.innerText = "Read";
   } else {
     readBook.innerText = "Not Read";
@@ -58,6 +58,7 @@ function createBookDiv(book, index) {
   }
 
   deleteDiv.addEventListener("click", deleteBook);
+  readBook.addEventListener("click", toggleRead);
 
   deleteDiv.appendChild(deleteIcon);
   bookDiv.appendChild(deleteDiv);
@@ -73,7 +74,12 @@ function createBook(form) {
   const bookTitle = form.title.value;
   const bookAuthor = form.author.value;
   const bookPages = form.pages.value;
-  const bookRead = form.read.value;
+  let bookRead = form.read.value;
+  if (bookRead == "yes") {
+    bookRead = true;
+  } else {
+    bookRead = false;
+  }
   const book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   return book;
 }
@@ -95,9 +101,20 @@ function display(library, container) {
 }
 
 function deleteBook(e) {
-  const deleteDiv = e.target;
+  const deleteDiv = e.currentTarget;
   const bookDiv = deleteDiv.parentElement.parentElement;
   const targetIndex = bookDiv.getAttribute("data-chandrika");
   myLibrary.splice(targetIndex, 1);
+  display(myLibrary, bookContainer);
+}
+
+function toggleRead(e) {
+  const readDiv = e.currentTarget;
+  const bookDiv = readDiv.parentElement;
+
+  const targetIndex = bookDiv.getAttribute("data-chandrika");
+  const book = myLibrary[targetIndex];
+
+  book.read = !book.read;
   display(myLibrary, bookContainer);
 }
