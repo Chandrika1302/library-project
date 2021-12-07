@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./index.css">
-        <script src="https://kit.fontawesome.com/843f31a33f.js" crossorigin="anonymous"></script>
-        <title>Library</title>
-    </head>
-    <body>
-        <header>
-            <h1 class="header">Library</h1>
-        </header>
-        <button class="add-book" id="add-book">Add Book
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
-              </div>
-        </button>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div class="welcomeBack-form">
-                    <form class="form" id="form" name="mainform">
-                        <h2 class="heading">Add New Book</h2>
-                        <label for="input-book-title" class="title">Title</label>
-                        <input type="text" placeholder="Enter the title" id="input-book-title" name="title" maxlength="20" required />
-                        <label for="input-book-author" class="author">Author</label>
-                        <input type="text" placeholder="Enter the name of the author" 
-                        id="input-book-author" name="author" required maxlength="25" />
-                        <label for="input-book-pages" class="pages" >Pages</label>
-                        <input type="number" placeholder="Enter the number of pages" id="input-book-pages" name="pages" required min="1" max="1000" />
-                        
-                        <p class="read-que">Have you read the book?</p>
-                        <div class="input-radio-btns" id="radio-btns"> 
-                            <div><input type="radio" id="yes-btn" class="choose-optn" value="Yes" name="read" checked >
-                            <label for="yes-btn" >Yes</label></div>
-                            <div><input type="radio" id="no-btn" class="choose-optn" value="No" name="read">
-                            <label for="no-btn">No</label></div></div>
-                        <div class="options">
-                            <button type="button" class="submit-opt" id="create-book" >Submit</button>
-                            <button type="button" class="cancel-opt" id="cancel-create-book">Cancel</button>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/843f31a33f.js" crossorigin="anonymous"></script>
+    <title>Library</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="header">Library</h1>
+    </header>
+    <button class="add-book" id="add-book">Add Book
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path fill="currentColor"
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+            </svg>
+        </div>
+    </button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="welcomeBack-form">
+                <form class="form" id="form" name="mainform">
+                    <h2 class="heading">Add New Book</h2>
+                    <label for="input-book-title" class="title">Title</label>
+                    <input type="text" placeholder="Enter the title" id="input-book-title" name="title" maxlength="20"
+                        required />
+                    <label for="input-book-author" class="author">Author</label>
+                    <input type="text" placeholder="Enter the name of the author" id="input-book-author" name="author"
+                        required maxlength="25" />
+                    <label for="input-book-pages" class="pages">Pages</label>
+                    <input type="number" placeholder="Enter the number of pages" id="input-book-pages" name="pages"
+                        required min="1" max="1000" />
+
+                    <p class="read-que">Have you read the book?</p>
+                    <div class="input-radio-btns" id="radio-btns">
+                        <div><input type="radio" id="yes-btn" class="choose-optn" value="Yes" name="read" checked>
+                            <label for="yes-btn">Yes</label>
                         </div>
-                    </form>
-                </div>
+                        <div><input type="radio" id="no-btn" class="choose-optn" value="No" name="read">
+                            <label for="no-btn">No</label>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <button type="button" class="submit-opt" id="create-book">Submit</button>
+                        <button type="button" class="cancel-opt" id="cancel-create-book">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
 
-        <div id="book-templates"></div>
-        <script src="./script.js"></script>
-    </body>
-   
+    <div id="book-templates"></div>
+    <script src="./script.js"></script>
+</body>
+
 
 
 
