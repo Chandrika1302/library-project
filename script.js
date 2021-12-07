@@ -1,9 +1,6 @@
 const addBookButton = document.getElementById("add-book");
 const bookForm = document.getElementById("form");
 const cancelBtn = document.getElementById("cancel-create-book");
-
-// const submitBtn = document.getElementById("create-book");
-// const appendElements = document.getElementById("book-templates");
 const bookContainer = document.querySelector("#book-templates");
 
 addBookButton.addEventListener("click", toggleBookModal);
@@ -29,52 +26,20 @@ bookForm.addEventListener("submit", submitForm);
 function submitForm(e) {
   e.preventDefault();
 
-  const form=e.target; 
+  const form = e.target;
 
-  const bookTitle=form.title.value;
-  const bookAuthor=form.author.value;
-  const bookPages=form.pages.value;
-  const bookRead=form.read.value;
+  const bookTitle = form.title.value;
+  const bookAuthor = form.author.value;
+  const bookPages = form.pages.value;
+  const bookRead = form.read.value;
 
-  const book=new Book(bookTitle,bookAuthor,bookPages,bookRead);
+  const book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   myLibrary.push(Book);
 
- 
+  const bookDiv = createBookDiv(book);
+  bookContainer.appendChild(bookDiv);
 
   return;
- 
-
-  const box = document.createElement("div");
-  const titleOfBook = document.createElement("h3");
-  const authorOfBook = document.createElement("p");
-  const pagesOfBook = document.createElement("p");
-  const readBook = document.createElement("p");
-  const deleteIcon = document.createElement("div");
-
-  box.classList.add("template-1");
-  titleOfBook.classList.add("template-heading");
-  authorOfBook.classList.add("template-optns");
-  pagesOfBook.classList.add("template-optns");
-  readBook.classList.add("read-div");
-  deleteIcon.classList.add("delete-icon");
-
-  titleOfBook.textContent = book1.title;
-  authorOfBook.textContent = book1.author;
-  pagesOfBook.textContent = book1.pages;
-  book1.read == "Yes"
-    ? (readBook.innerText = "Read")
-    : (readBook.innerText = "Not Read");
-
-  deleteIcon.innerHTML =
-    '<i class="fas fa-trash-alt" id="trash-icon" onClick="deleteTemplate()"></i>';
-
-  box.appendChild(deleteIcon);
-  box.appendChild(titleOfBook);
-  box.appendChild(authorOfBook);
-  box.appendChild(pagesOfBook);
-  box.appendChild(readBook);
-
-  appendElements.appendChild(box);
 
   if (bookRead == "No") {
     readBook.style.backgroundColor = "red";
@@ -92,6 +57,37 @@ function submitForm(e) {
 //   }
 // }
 
-function deleteTemplate() {
-  alert("hi");
+function createBookDiv(book) {
+  const bookDiv = document.createElement("div");
+  const titleOfBook = document.createElement("h3");
+  const authorOfBook = document.createElement("p");
+  const pagesOfBook = document.createElement("p");
+  const readBook = document.createElement("p");
+  const deleteDiv = document.createElement("div");
+  const deleteIcon = document.createElement("i");
+
+  bookDiv.classList.add("template-1");
+  titleOfBook.classList.add("template-heading");
+  authorOfBook.classList.add("template-optns");
+  pagesOfBook.classList.add("template-optns");
+  readBook.classList.add("read-div");
+  deleteDiv.classList.add("delete-icon");
+  deleteIcon.className = "fas fa-trash-alt";
+
+  titleOfBook.textContent = book.title;
+  authorOfBook.textContent = book.author;
+  pagesOfBook.textContent = book.pages;
+  if (book.read === "yes") {
+    readBook.innerText = "Read";
+  } else {
+    readBook.innerText = "Not Read";
+  }
+
+  bookDiv.appendChild(deleteIcon);
+  bookDiv.appendChild(titleOfBook);
+  bookDiv.appendChild(authorOfBook);
+  bookDiv.appendChild(pagesOfBook);
+  bookDiv.appendChild(readBook);
+
+  return bookDiv;
 }
