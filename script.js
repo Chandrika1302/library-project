@@ -21,11 +21,11 @@ function submitForm(e) {
   const form = e.target;
   const book = createBook(form);
 
-  myLibrary.push(Book);
+  myLibrary.push(book);
 
   const bookDiv = createBookDiv(book);
-  bookContainer.appendChild(bookDiv);
-  
+  display(myLibrary,bookContainer);
+
   toggleBookModal();
   form.reset();
 }
@@ -80,4 +80,12 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+}
+
+function display(library,container) {
+  container.innerHTML='';
+  for(const book of library){
+    const bookDiv=createBookDiv(book);
+    container.appendChild(bookDiv);
+  }
 }
