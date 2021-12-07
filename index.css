@@ -170,3 +170,7 @@ input{
  .hide{
    display: none;
  }
+
+ .unread-book{
+   background-color: hsl(0, 50%, 50%);
+ }

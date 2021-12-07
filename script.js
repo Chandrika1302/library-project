@@ -5,6 +5,9 @@ const bookContainer = document.querySelector("#book-templates");
 
 addBookButton.addEventListener("click", toggleBookModal);
 cancelBtn.addEventListener("click", toggleBookModal);
+bookForm.addEventListener("submit", submitForm);
+
+const myLibrary = [];
 
 function toggleBookModal() {
   const Bookmodal = document.getElementById("myModal");
@@ -12,50 +15,20 @@ function toggleBookModal() {
   Bookmodal.classList.toggle("hide");
 }
 
-const myLibrary = [];
-
-function Book(title, author, pages, read) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.read = read);
-}
-
-bookForm.addEventListener("submit", submitForm);
-
 function submitForm(e) {
   e.preventDefault();
 
   const form = e.target;
+  const book = createBook(form);
 
-  const bookTitle = form.title.value;
-  const bookAuthor = form.author.value;
-  const bookPages = form.pages.value;
-  const bookRead = form.read.value;
-
-  const book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   myLibrary.push(Book);
 
   const bookDiv = createBookDiv(book);
   bookContainer.appendChild(bookDiv);
-
-  return;
-
-  if (bookRead == "No") {
-    readBook.style.backgroundColor = "red";
-  }
+  
+  toggleBookModal();
+  form.reset();
 }
-// bookContainer.addEventListener('click',toggle)
-// function toggle(event){
-//   if(event.target.innerText=="Read"){
-//   event.target.innerText="Not Read";
-//   event.target.style.backgroundColor="red";
-//   }
-//   else if(event.target.innerText=="Not Read"){
-//   event.target.innerText="Read";
-//   event.target.style.backgroundColor="green";
-//   }
-// }
 
 function createBookDiv(book) {
   const bookDiv = document.createElement("div");
@@ -81,6 +54,7 @@ function createBookDiv(book) {
     readBook.innerText = "Read";
   } else {
     readBook.innerText = "Not Read";
+    readBook.classList.add("unread-book");
   }
 
   bookDiv.appendChild(deleteIcon);
@@ -90,4 +64,20 @@ function createBookDiv(book) {
   bookDiv.appendChild(readBook);
 
   return bookDiv;
+}
+
+function createBook(form) {
+  const bookTitle = form.title.value;
+  const bookAuthor = form.author.value;
+  const bookPages = form.pages.value;
+  const bookRead = form.read.value;
+  const book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+  return book;
+}
+
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
