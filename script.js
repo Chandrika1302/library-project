@@ -4,6 +4,8 @@ const bookForm = document.getElementById("form");
 const cancelBtn = document.getElementById("cancel-create-book");
 const submitBtn = document.getElementById("create-book");
 const appendElements=document.getElementById('book-templates');
+const bookContainer=document.querySelector('#book-templates');
+
 
 addBook.addEventListener("click", function () {
   modal.style.display = "block";
@@ -54,6 +56,7 @@ function submitForm() {
   authorOfBook.textContent=book1.author;
   pagesOfBook.textContent=book1.pages;
   book1.read == ("Yes") ? readBook.innerText="Read" : readBook.innerText="Not Read";
+  
 
 
   deleteIcon.innerHTML='<i class="fas fa-trash-alt" id="trash-icon" onClick="deleteTemplate()"></i>'
@@ -69,9 +72,25 @@ function submitForm() {
   if(bookRead=='No'){
     readBook.style.backgroundColor='red';
   }
+ 
 }
+// bookContainer.addEventListener('click',toggle)
+// function toggle(event){
+//   if(event.target.innerText=="Read"){
+//   event.target.innerText="Not Read";
+//   event.target.style.backgroundColor="red";
+//   }
+//   else if(event.target.innerText=="Not Read"){
+//   event.target.innerText="Read";
+//   event.target.style.backgroundColor="green";
+//   }
+// }
+
+
+
+
 function deleteTemplate(){
-  // alert("hi");
+  alert("hi");
 }
 
    
